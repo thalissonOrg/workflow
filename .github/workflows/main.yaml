@@ -1,0 +1,54 @@
+name: 'Action to deploy to GAE'
+
+
+on:
+  workflow_call:
+    inputs:
+      modules:
+        required: false
+        type: string
+        description: 'Application modules'
+        default: "['.']"
+      environment:
+        description: 'Execution environment'
+        type: string
+      gae_auth_json:
+        description: 'Authentication file in GAE'
+        type: string
+      cloud:
+        description: 'Cloud provider/service'
+        type: string
+      version_suffix:
+        description: 'Version suffix'
+        type: string
+      deployment_type:
+        description: 'Deployment name type(aks,gke...)'
+        type: string
+      deploy_tool:
+        description: 'Deployment tool(KUSTOMIZE,RAW,HELM)'
+        type: string
+      namespace:
+        description: 'Namespace'
+        type: string
+      azure_credentials:
+        description: 'Azure credentials'
+        type: string
+      with_deploy:
+        description: 'If true allows for deployment on azure/google'
+        type: string
+
+
+jobs:
+  middleman:
+    strategy:
+        matrix:
+            path: ${{ fromJson(inputs.modules)}}
+    uses: thalissonOrg/k8s/.github/workflows/main.yml@main
+    with:
+        environment: dev
+        cloud: "aks"
+        deployment_type: 'test23'
+        deploy_tool: 'KUSTOMIZEs'
+        namespace: 'etrm'
+        module_name: ${{ matrix.path }}   
+    secrets: inherit
