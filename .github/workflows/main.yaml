@@ -39,16 +39,9 @@ on:
 
 
 jobs:
-  middleman:
-    strategy:
-        matrix:
-            path: ${{ fromJson(inputs.modules)}}
-    uses: thalissonOrg/k8s/.github/workflows/main.yml@main
-    with:
-        environment: dev
-        cloud: "aks"
-        deployment_type: 'test23'
-        deploy_tool: 'KUSTOMIZE'
-        namespace: 'etrm'
-        module_name: ${{ matrix.path }}   
-    secrets: inherit
+    Publish:
+        name: Push Docker image to Docker Hub
+        runs-on: ubuntu-latest
+        steps:
+          - name: Check out the repo
+            uses: actions/checkout@v4
