@@ -44,12 +44,17 @@ jobs:
         matrix:
             path: ${{ fromJson(inputs.modules)}}
         fail-fast: false
-    uses: thalissonOrg/k8s/.github/workflows/main.yml@main
-    with:
-        environment: dev
-        cloud: "aks"
-        deployment_type: 'test23'
-        deploy_tool: 'KUSTOMIZE'
-        namespace: 'etrm'
-        module_name: ${{ matrix.path }}   
-    secrets: inherit
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out the repo
+        uses: actions/checkout@v4
+
+      - name: Check out the repo
+        uses: thalissonOrg/k8s/.github/workflows/main.yml@main
+        with:
+            environment: dev
+            cloud: "aks"
+            deployment_type: 'test23'
+            deploy_tool: 'KUSTOMIZE'
+            namespace: 'etrm'
+            module_name: ${{ matrix.path }}   
