@@ -43,6 +43,7 @@ jobs:
     strategy:
         matrix:
             path: ${{ fromJson(inputs.modules)}}
+        fail-fast: false
     uses: thalissonOrg/k8s/.github/workflows/main.yml@main
     with:
         environment: dev
