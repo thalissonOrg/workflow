@@ -48,7 +48,7 @@ jobs:
         environment: dev
         cloud: "aks"
         deployment_type: 'test23'
-        deploy_tool: 'KUSTOMIZEs'
+        deploy_tool: 'KUSTOMIZE'
         namespace: 'etrm'
         module_name: ${{ matrix.path }}   
     secrets: inherit
