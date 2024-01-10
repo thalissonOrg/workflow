@@ -1,0 +1,27 @@
+217
+	Algorith that checks if there are any repeated numbers in an array.
+		Proposed Solution:2 for loops, the first runs through the array and the second one runst through it checking the starting position of the first loop+1, and minus the last position+1, returns true if any value appears twice.
+		Actual solution:Sort the array first(Arrays.sort()), then check for duplicates.
+
+
+242
+	Check if t is and anagram of s.
+		Proposed solution:First check if they are the same size then sort the two strings into an Array of chars and compare each position.
+		Actual solution:Logic was ok, execution was not, should have use Array.equals(a,b) to compare char arrays instead of loop;
+
+49
+	Group anagrams together.
+		Proposed solution:Create a nashmap<String,String[]> with the key  being the sorted anagram and the value all the anagrams, Within a for loop,
+				  sort the current string and check if its equal to any key of the hashmap, if not create a key for it and add it. Finally  convert the hashmap to a List<List<String>> since its the required type.
+		Actual solution:Matches proposed, didnt factor in converting the char[] to string to add to the map.
+
+
+238
+
+	Given an integer array nums, return an array answer such that answer[i] is equal to the product of all the elements of nums except nums[i].
+		Proposed solution: Loop through the input array an inside loop for the answer array starting in  in each position
+
+
+36
+	Determine if a 9 x 9 Sudoku board is valid. Only the filled cells need to be validated according to the following rules
+		Proposed solution: Starting left/top to right/down validate all the cells to the right and down, then save the coordinates for all the top left squares from each cell and from them validate each cell.
