@@ -44,7 +44,7 @@ jobs:
         matrix:
             path: ${{ fromJson(inputs.modules)}}
         fail-fast: false
-    uses: thalissonOrg/k8s/.github/workflows/main.yml@main
+    uses: thalissonOrg/k8s/.github/workflows/main.yml@dev
     with:
         environment: dev
         cloud: "aks"
