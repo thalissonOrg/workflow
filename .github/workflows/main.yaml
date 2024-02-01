@@ -46,11 +46,7 @@ jobs:
         fail-fast: false
     uses: thalissonOrg/k8s/.github/workflows/main.yml@dev
     with:
-        environment: dev
-        cloud: "aks"
-        deployment_type: 'test23'
-        deploy_tool: 'KUSTOMIZE'
-        namespace: 'etrm'
+        imageTag: test
         module_name: ${{ matrix.path }}   
         imageName: test
     secrets: inherit
