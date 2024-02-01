@@ -52,4 +52,5 @@ jobs:
         deploy_tool: 'KUSTOMIZE'
         namespace: 'etrm'
         module_name: ${{ matrix.path }}   
+        image_name: test
     secrets: inherit
