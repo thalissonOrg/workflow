@@ -46,7 +46,7 @@ jobs:
         fail-fast: false
     uses: thalissonOrg/k8s/.github/workflows/main.yml@dev
     with:
-        imageTag: test
+        imageTag: teste
         module_name: ${{ matrix.path }}   
         imageName: test
     secrets: inherit
